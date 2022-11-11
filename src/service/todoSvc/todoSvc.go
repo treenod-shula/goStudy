@@ -1,13 +1,13 @@
 package todoSvc
 
 import (
-	"strconv"
 	"study-todo-backend/src/models/todoModel"
 )
 
-func GetTodo(data string) string {
-	todos := todoModel.GetTotods()
-	value, _ := strconv.Atoi(data)
+// 파라미터 받아서 모델쪽에 접근하는것
+func GetTodos(id int) ([]todoModel.Todo, error) {
+	todos, err := todoModel.GetTodos(id)
+	//value, _ := strconv.Atoi(data)
 
-	return todos[value]
+	return todos, err
 }
